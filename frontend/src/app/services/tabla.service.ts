@@ -14,7 +14,7 @@ export interface TablaItem {
   providedIn: 'root',
 })
 export class TablaService {
-  private readonly apiUrl = 'http://localhost:3001/api/v1/tabla';
+  private readonly apiUrl = '/api/v1/tabla';
 
   constructor(private http: HttpClient) {}
 

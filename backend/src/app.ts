@@ -20,6 +20,17 @@ app.use('/api/v1/clientes', clientesRoutes);
 
 app.use('/fotos', express.static(path.join(__dirname, '..', 'fotos')));
 
+// Servir el build estático del frontend Angular en producción
+const frontendDist = path.join(__dirname, '..', '..', 'frontend', 'dist', 'hotel', 'browser');
+app.use(express.static(frontendDist));
+
+// Fallback para que Angular maneje las rutas (SPA)
+app.use((req, res, next) => {
+  res.sendFile(path.join(frontendDist, 'index.html'), (err) => {
+    if (err) next(err);
+  });
+});
+
 const fotosPorId: Record<number, string> = {
   1: 'fachada101.webp',
   2: 'fachada 102.webp',

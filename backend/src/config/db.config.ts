@@ -1,14 +1,20 @@
 import { Pool } from 'pg';
 
 // Configuración de conexión a PostgreSQL
-// Contraseña: 200309 (según indicó el usuario)
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'sqlhotel',
-  port: 5432,
-  password: '200309',
-});
+// En producción usa DATABASE_URL o variables de entorno (Render, Railway, etc.)
+const pool = new Pool(
+  process.env.DATABASE_URL
+    ? {
+        connectionString: process.env.DATABASE_URL,
+      }
+    : {
+        user: process.env.DB_USER || 'postgres',
+        host: process.env.DB_HOST || 'localhost',
+        database: process.env.DB_NAME || 'sqlhotel',
+        port: Number(process.env.DB_PORT) || 5432,
+        password: process.env.DB_PASSWORD || '200309',
+      }
+);
 
 pool.on('connect', (client) => {
   console.log('📊 Conectado a PostgreSQL');
