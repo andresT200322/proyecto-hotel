@@ -1,0 +1,11 @@
+<div class="tarjeta">
+  <div class="tarjeta-fotos">
+    @for (foto of imagenes; track foto) {
+      <img [src]="foto" [alt]="titulo" />
+    }
+  </div>
+  <div class="tarjeta-body">
+    <h3>{{ titulo }}</h3>
+    <p>{{ descripcion }}</p>
+  </div>
+</div>

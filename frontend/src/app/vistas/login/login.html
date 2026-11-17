@@ -1,0 +1,26 @@
+<div class="login-container">
+  <h1>Login</h1>
+
+  <section class="card">
+    <h2>Iniciar sesión</h2>
+    <form (ngSubmit)="iniciarSesion()">
+      <input type="text" [(ngModel)]="loginData.username" name="loginUser" placeholder="Usuario" required />
+      <input type="password" [(ngModel)]="loginData.password" name="loginPass" placeholder="Contraseña" required minlength="4" maxlength="20" />
+      <button type="submit">Entrar</button>
+    </form>
+    <p class="ok" *ngIf="loginMensaje">{{ loginMensaje }}</p>
+  </section>
+
+  <section class="card">
+    <h2>Registrarse</h2>
+    <form (ngSubmit)="registrar()">
+      <input type="text" [(ngModel)]="registroData.nombre" name="regNombre" placeholder="Nombre" required />
+      <input type="email" [(ngModel)]="registroData.email" name="regEmail" placeholder="Email" required pattern="[^@\s]+@[^@\s]+" />
+      <input type="text" [(ngModel)]="registroData.telefono" name="regTelefono" placeholder="Teléfono (10 dígitos)" required minlength="10" maxlength="10" pattern="[0-9]{10}" (input)="soloNumeros($event)" />
+      <input type="text" [(ngModel)]="registroData.username" name="regUser" placeholder="Usuario" required />
+      <input type="password" [(ngModel)]="registroData.password" name="regPass" placeholder="Contraseña" required minlength="4" maxlength="20" />
+      <button type="submit">Registrar</button>
+    </form>
+    <p class="ok" *ngIf="registroMensaje">{{ registroMensaje }}</p>
+  </section>
+</div>

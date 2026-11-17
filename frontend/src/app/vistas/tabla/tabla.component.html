@@ -1,0 +1,22 @@
+<div class="tabla-container">
+  <table class="tabla">
+    <thead>
+      <tr>
+        <th>Foto</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data$ | async">
+        <td class="col-foto">
+          <img [src]="fotoUrl(row.foto)" [alt]="row.nombre" class="tabla-foto" />
+        </td>
+        <td class="col-nombre">{{ row.nombre }}</td>
+        <td class="col-desc">{{ row.descripcion }}</td>
+        <td class="col-precio">${{ row.precio }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,34 @@
+.usuarios-container {
+  padding: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.tabla-container {
+  overflow-x: auto;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.tabla th,
+.tabla td {
+  border: 1px solid #ddd;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.tabla th {
+  background-color: #f4f6f8;
+  font-weight: 600;
+}
+
+.tabla tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.tabla tbody tr:hover {
+  background-color: #f0f4ff;
+}

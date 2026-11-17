@@ -1,0 +1,8 @@
+<h1>Mas sobre nosotros</h1>
+<p>A continuación nuestras cabañas y servicios:</p>
+
+<div class="grilla">
+  @for (c of cabanas; track c.titulo) {
+    <app-tarjeta [titulo]="c.titulo" [descripcion]="c.descripcion" [imagenes]="c.imagenes" />
+  }
+</div>
